@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "691738463214",
+    "project_id": "hire-me-253a4",
+    "storage_bucket": "hire-me-253a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691738463214:android:f634b39a7ee481257c9cff",
+        "android_client_info": {
+          "package_name": "com.cs356.hireme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691738463214-uc31sllcaru9i7bbitpknevrn13hova7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLHcoppkJtRZXJ2xSQlBQb8-NzKtnwtZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691738463214-uc31sllcaru9i7bbitpknevrn13hova7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
