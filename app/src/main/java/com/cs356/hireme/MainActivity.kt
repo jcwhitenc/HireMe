@@ -2,43 +2,62 @@ package com.cs356.hireme
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.cs356.hireme.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.cs356.hireme.main.CompanyFragment
+import com.cs356.hireme.main.MainFragment
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : AppCompatActivity(), View.OnTouchListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.main_activity)
+        val mainFrag = MainFragment.newInstance()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, mainFrag)
+                .commitNow()
+        }
 
         checkCurrentUser()
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val frags = listOf(CompanyFragment.newInstance())
 
-        setSupportActionBar(binding.toolbar)
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top)
+        fragmentTransaction.replace(R.id.container, frags[0])
+        fragmentTransaction.commit()
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+        //close Button
+        messageView = findViewById(R.id.message)
+        messageView?.setOnTouchListener(this)
     }
 
-    fun checkCurrentUser() {
+    override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
+        when (view) {
+            messageView -> {
+                when (motionEvent.getAction()) {
+                    MotionEvent.ACTION_DOWN -> {
+                        Toast.makeText(this, "Should the companies Info now.",
+                            Toast.LENGTH_LONG).show()
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        view.performClick()
+                    }
+                }
+            }
+        }
+        return true
+    }
+
+    private fun checkCurrentUser() {
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
         } else {
@@ -46,27 +65,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
     }
 }
