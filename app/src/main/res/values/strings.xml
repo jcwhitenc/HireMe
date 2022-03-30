@@ -20,6 +20,10 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="x">X</string>
+    <string name="apply">Apply</string>
+    <string name="profile_fragment_button">Profile Fragment Button</string>
+    <string name="holds_company_image">Holds Company Image</string>
 
 
 </resources>

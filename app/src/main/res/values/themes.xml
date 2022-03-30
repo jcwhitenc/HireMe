@@ -22,4 +22,12 @@
     <style name="Theme.HireMe.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.HireMe.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Button.White" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="Button.Red" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@color/red</item>
+    </style>
 </resources>
