@@ -15,6 +15,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity)
+        val mainFrag = MainFragment.newInstance()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, mainFrag)
+                .commitNow()
+        }
+
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top)
+        fragmentTransaction.replace(R.id.container, frags[0])
+        fragmentTransaction.commit()
 
         //checkCurrentUser()
 
