@@ -167,7 +167,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/ic_baseline_cloud_download_24" />
+                        android:src="@drawable/green_check" />
 
                     <TextView
                         android:id="@+id/fit_item_1_description"
@@ -191,7 +191,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/ic_baseline_cloud_download_24" />
+                        android:src="@drawable/green_check" />
 
                     <TextView
                         android:id="@+id/fit_item_2_description"
@@ -215,7 +215,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/ic_baseline_cloud_download_24" />
+                        android:src="@drawable/redcross" />
 
                     <TextView
                         android:id="@+id/fit_item_3_description"
