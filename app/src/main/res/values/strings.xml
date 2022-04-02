@@ -24,6 +24,20 @@
     <string name="apply">Apply</string>
     <string name="profile_fragment_button">Profile Fragment Button</string>
     <string name="holds_company_image">Holds Company Image</string>
-
+    <string name="position_sheet_title">About this position</string>
+    <string name="position_title">Temp Position Title</string>
+    <string name="position_title_label">Title</string>
+    <string name="temp_wage">Temp Wage</string>
+    <string name="wage_label">Wage</string>
+    <string name="hours_label">Hours</string>
+    <string name="temp_hours">Temp Hours</string>
+    <string name="location_label">Location</string>
+    <string name="temp_location">Temp Location</string>
+    <string name="start_date_label">Start Date</string>
+    <string name="temp_start_date">Temp Start Date</string>
+    <string name="fit_label">Your fit</string>
+    <string name="temporary_fit_description">Temporary Fit Description</string>
+    <string name="about_label">About (Company)</string>
+    <string name="temp_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor, velit auctor tincidunt pellentesque, orci eros blandit diam, sed porttitor mauris libero eu dui. Proin auctor auctor lacus vitae ornare.</string>
 
 </resources>

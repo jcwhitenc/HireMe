@@ -1,12 +1,15 @@
 package com.cs356.hireme
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -50,6 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getNewCompany() {
         Toast.makeText(this,"Getting new Company", Toast.LENGTH_SHORT).show()
+        //update the bottom sheet
     }
 
     private fun rejectCompany() {
