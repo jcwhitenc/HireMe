@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">HireMe</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
@@ -38,6 +38,7 @@
     <string name="fit_label">Your fit</string>
     <string name="temporary_fit_description">Temporary Fit Description</string>
     <string name="about_label">About (Company)</string>
-    <string name="temp_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor, velit auctor tincidunt pellentesque, orci eros blandit diam, sed porttitor mauris libero eu dui. Proin auctor auctor lacus vitae ornare.</string>
+    <string name="temp_about_text" tools:ignore="Typos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor, velit auctor tincidunt pellentesque, orci eros blandit diam, sed porttitor mauris libero eu dui. Proin auctor auctor lacus vitae ornare.</string>
+    <string name="icon_for_fit_description">Icon for fit Description</string>
 
 </resources>

@@ -40,6 +40,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/position_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
@@ -167,7 +168,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/green_check" />
+                        android:src="@drawable/green_check"
+                        android:contentDescription="@string/icon_for_fit_description"/>
 
                     <TextView
                         android:id="@+id/fit_item_1_description"
@@ -191,7 +193,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/green_check" />
+                        android:src="@drawable/green_check"
+                        android:contentDescription="@string/icon_for_fit_description"/>
 
                     <TextView
                         android:id="@+id/fit_item_2_description"
@@ -215,7 +218,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/redcross" />
+                        android:src="@drawable/redcross"
+                        android:contentDescription="@string/icon_for_fit_description"/>
 
                     <TextView
                         android:id="@+id/fit_item_3_description"
