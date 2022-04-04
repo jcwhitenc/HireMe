@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:layout_gravity="center|center_horizontal|center_vertical"
     app:layout_anchorGravity="center|center_horizontal|center_vertical"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

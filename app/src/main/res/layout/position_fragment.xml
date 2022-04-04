@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/company_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/holds_company_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/mcdonalds"
+        app:layout_constraintBottom_toTopOf="@id/choice_bar" />
+
+    <ImageButton
+        android:id="@+id/profile_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/profile_fragment_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_person"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/choice_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/reject_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="@string/x" />
+
+        <TextView
+            android:id="@+id/accept_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:background="@color/teal_700"
+            android:gravity="center"
+            android:text="@string/apply" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
