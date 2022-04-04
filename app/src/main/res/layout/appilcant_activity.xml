@@ -36,7 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:autofillHints="name"
             android:hint="@string/full_name"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -62,7 +64,7 @@
                 android:layout_height="34dp"
                 android:layout_margin="10dp"
                 android:scaleX="1.5"
-                android:scaleY="1.5"/>
+                android:scaleY="1.5" />
         </LinearLayout>
 
         <RadioGroup
@@ -108,7 +110,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:autofillHints="name"
             android:hint="@string/address"
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/age"
             app:layout_constraintTop_toTopOf="parent" />

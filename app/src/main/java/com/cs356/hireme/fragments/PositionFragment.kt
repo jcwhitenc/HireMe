@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.cs356.hireme.R
 import com.cs356.hireme.activities.ApplicantActivity
-import com.cs356.hireme.activities.LoginActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 

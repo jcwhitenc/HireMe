@@ -10,7 +10,7 @@ class ApplicantActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.appilcant_activity)
         val agePicker = findViewById<NumberPicker>(R.id.age_picker)
-        val ageRange = 110-14
+        val ageRange = 110 - 14
         agePicker.displayedValues = Array(ageRange) { i -> ((ageRange - i) + 14).toString() }
         agePicker.maxValue = ageRange - 1
         agePicker.minValue = 0

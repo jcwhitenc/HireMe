@@ -168,8 +168,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/green_check"
-                        android:contentDescription="@string/icon_for_fit_description"/>
+                        android:contentDescription="@string/icon_for_fit_description"
+                        android:src="@drawable/green_check" />
 
                     <TextView
                         android:id="@+id/fit_item_1_description"
@@ -193,8 +193,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/green_check"
-                        android:contentDescription="@string/icon_for_fit_description"/>
+                        android:contentDescription="@string/icon_for_fit_description"
+                        android:src="@drawable/green_check" />
 
                     <TextView
                         android:id="@+id/fit_item_2_description"
@@ -218,8 +218,8 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="8dp"
-                        android:src="@drawable/redcross"
-                        android:contentDescription="@string/icon_for_fit_description"/>
+                        android:contentDescription="@string/icon_for_fit_description"
+                        android:src="@drawable/redcross" />
 
                     <TextView
                         android:id="@+id/fit_item_3_description"
