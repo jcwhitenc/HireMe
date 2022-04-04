@@ -8,11 +8,12 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class PositionFragment : Fragment() {
-    private var fragView : View? = null
+    private var fragView: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,12 +56,16 @@ class PositionFragment : Fragment() {
     }
 
     private fun getNewPosition() {
-        Toast.makeText(activity, "Getting new Company", Toast.LENGTH_SHORT).show()
+        // Toast.makeText(activity, "Getting new Company", Toast.LENGTH_SHORT).show()
         // get a new position from the database and store it
 
         // update the views with the new model data
 
         // have image view shrink
+        requireActivity().supportFragmentManager.commit {
+            setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+            add(R.id.main_fragment_container, PositionFragment())
+        }
     }
 
     private fun rejectPosition() {
