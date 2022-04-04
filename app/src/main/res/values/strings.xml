@@ -41,4 +41,20 @@
     <string name="temp_about_text" tools:ignore="Typos">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor, velit auctor tincidunt pellentesque, orci eros blandit diam, sed porttitor mauris libero eu dui. Proin auctor auctor lacus vitae ornare.</string>
     <string name="icon_for_fit_description">Icon for fit Description</string>
 
+
+    <string name="application">Application Information</string>
+    <string name="full_name">Full Name</string>
+    <string name="age">Age</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="address">Address</string>
+    <string name="job_filters">Preferred Job Filters</string>
+    <string name="part_time">Part Time</string>
+    <string name="full_time">Full Time</string>
+    <string name="max_distance">Preferred Max Distance</string>
+    <string name="minimum_pay">Preferred Minimum Pay</string>
+    <string name="submit">Submit</string>
+
+
 </resources>
