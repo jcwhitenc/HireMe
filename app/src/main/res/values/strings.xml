@@ -55,6 +55,8 @@
     <string name="max_distance">Preferred Max Distance</string>
     <string name="minimum_pay">Preferred Minimum Pay</string>
     <string name="submit">Submit</string>
+    <string name="login">Login</string>
+    <string name="age">Age</string>
 
 
 </resources>

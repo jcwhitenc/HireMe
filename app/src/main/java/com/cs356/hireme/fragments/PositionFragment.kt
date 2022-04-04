@@ -1,14 +1,17 @@
-package com.cs356.hireme
+package com.cs356.hireme.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.cs356.hireme.R
+import com.cs356.hireme.activities.ApplicantActivity
+import com.cs356.hireme.activities.LoginActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
@@ -33,7 +36,8 @@ class PositionFragment : Fragment() {
         val profileButton = fragView?.findViewById<ImageButton>(R.id.profile_button)
         profileButton?.setOnClickListener {
             // Put up the Profile Fragments
-            Toast.makeText(activity, "Show Profile", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), ApplicantActivity::class.java)
+            startActivity(intent)
         }
 
         // accept button

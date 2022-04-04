@@ -1,8 +1,10 @@
-package com.cs356.hireme
+package com.cs356.hireme.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.cs356.hireme.R
+import com.cs356.hireme.fragments.PositionFragment
 import com.google.firebase.auth.FirebaseAuth
 
 
