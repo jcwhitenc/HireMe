@@ -68,6 +68,7 @@
         </LinearLayout>
 
         <RadioGroup
+            android:id="@+id/sex_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -133,6 +134,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
+            android:id="@+id/job_type_group"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -173,7 +175,7 @@
         </LinearLayout>
 
         <com.google.android.material.slider.Slider
-            android:id="@+id/max_distance_val"
+            android:id="@+id/max_distance_slider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stepSize="0.5"
@@ -197,7 +199,7 @@
         </LinearLayout>
 
         <com.google.android.material.slider.Slider
-            android:id="@+id/min_pay_val"
+            android:id="@+id/min_pay_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stepSize="0.25"
