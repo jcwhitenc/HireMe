@@ -1,6 +1,7 @@
 {
   "positions": [
     {
+      "photo": "cashier.jpg",
       "title": "Cashier",
       "wage": 15,
       "payCycle": "part-time",
@@ -10,6 +11,7 @@
       "description": "Cashier responsibilities include receiving payments and issuing receipts, gift-wrapping packages and keeping track of all cash and credit transactions."
     },
     {
+      "photo": "lifeguard.jpg",
       "title": "Lifeguard",
       "wage": 14,
       "payCycle": "full-time",
@@ -20,6 +22,7 @@
 
     },
     {
+      "photo": "deliverydriver.jpg",
       "title": "Delivery Driver",
       "wage": 16,
       "payCycle": "full-time",
@@ -29,6 +32,7 @@
       "description": "Responsible for delivering food to customers with excellent customer service and a positive attitude. Ability to operate store technology."
     },
     {
+      "photo": "swig.jpg",
       "title": "Evening Team Member",
       "wage": 12,
       "payCycle": "part-time",
@@ -38,6 +42,7 @@
       "description": "You will never have a dull moment when you are on the Team at Swig! You'll wear many hats, but your primary focus is to make sure our customers get nothing less than a fantastic experience."
     },
     {
+      "photo": "salesassociate.jpg",
       "title": "Sales Associate -- Provo Towne Center",
       "wage": 13,
       "payCycle": "part-time",
@@ -47,6 +52,7 @@
       "description": "Engage, educate, and befriend customers to make an amazing shopping experience."
     },
     {
+      "photo": "restaurantcashier.jpg",
       "title": "Restaurant Cashier",
       "wage": 14,
       "payCycle": "full-time",
@@ -56,6 +62,7 @@
       "description": "Free meals + meal discounts. Medical, dental, vision and life insurance. Build your customer service skills."
     },
     {
+      "photo": "retailstoreassociate.jpg",
       "title": "Retail Store Associate",
       "wage": 13,
       "payCycle": "part-time",
@@ -65,6 +72,7 @@
       "description": "Providing differentiated customer service by anticipating customer needs, demonstrating compassion and care in all interactions, and actively identifying and resolving potential service issues"
     },
     {
+      "photo": "librarypage.jpg",
       "title": "Library Page",
       "wage": 8,
       "payCycle": "part-time",
@@ -74,6 +82,7 @@
       "description": "Shelve all assigned library items accurately and quickly. Shift items on shelves to maintain even item distribution."
     },
     {
+      "photo": "storegreeter.jpg",
       "title": "Brand Ambassador",
       "wage": 12,
       "payCycle": "full-time",
@@ -83,6 +92,7 @@
       "description": "Consistently creates a welcoming environment as customers enter or exit the store."
     },
     {
+      "photo": "summerguide.jpg",
       "title": "Summer Guide",
       "wage": 13,
       "payCycle": "full-time",
@@ -92,6 +102,7 @@
       "description": "The Summer Guide creates a memorable, engaging and fun experience for guests by hosting guided mountain bike and hiking excursions."
     },
     {
+      "photo": "restaurantteammember.jpg",
       "title": "Restaurant Team Member",
       "wage": 14,
       "payCycle": "part-time",
