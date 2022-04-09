@@ -7,21 +7,46 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.cs356.hireme.R
 import com.cs356.hireme.activities.ApplicantActivity
+import com.cs356.hireme.activities.LoginActivity
+import com.cs356.hireme.activities.MainActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class PositionFragment : Fragment() {
     private var fragView: View? = null
+    private var userDocument: DocumentReference? = null;
+    private var positionsCollection: CollectionReference? = null;
+    private var companiesCollection: CollectionReference? = null;
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val db = Firebase.firestore;
+        val user = FirebaseAuth.getInstance().currentUser
+
+        if(user == null) {
+            val intent = Intent(this.activity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        else {
+            userDocument = db.collection("users").document(user.uid)
+        }
+
+        positionsCollection = db.collection("positions")
+        companiesCollection = db.collection("companies")
+
         fragView = inflater.inflate(R.layout.position_fragment, container, false)
 
         if (fragView == null) return super.onCreateView(inflater, container, savedInstanceState)
@@ -59,7 +84,7 @@ class PositionFragment : Fragment() {
     }
 
     private fun getNewPosition() {
-        // Toast.makeText(activity, "Getting new Company", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Gathering position", Toast.LENGTH_SHORT).show()
         // get a new position from the database and store it
 
         // update the views with the new model data

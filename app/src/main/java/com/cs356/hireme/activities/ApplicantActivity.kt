@@ -3,7 +3,11 @@ package com.cs356.hireme.activities
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.cs356.hireme.R
+import com.cs356.hireme.databinding.ActivityMainBinding
 import com.google.android.material.slider.Slider
 
 class ApplicantActivity : AppCompatActivity() {
@@ -36,9 +40,11 @@ class ApplicantActivity : AppCompatActivity() {
     private var userFullName = "No Name"
     private var jobType = "Job Type"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+    override fun onCreate(savedInstanceState: Bundle?, ) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.appilcant_activity)
+
 
         //set up settings for the age picker
         agePicker = findViewById(R.id.age_picker)
