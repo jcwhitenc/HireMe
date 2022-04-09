@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //checkCurrentUser()
+        checkCurrentUser()
 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.main_fragment_container, PositionFragment()).commit()
