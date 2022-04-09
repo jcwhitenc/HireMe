@@ -7,13 +7,17 @@
 
     <ImageButton
         android:id="@+id/company_image"
-        android:layout_width="match_parent"
+        android:layout_width="411dp"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
+        android:adjustViewBounds="false"
+        android:background="#FFFFFF"
         android:contentDescription="@string/holds_company_image"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/mcdonalds"
-        app:layout_constraintBottom_toTopOf="@id/choice_bar" />
+        app:layout_constraintBottom_toTopOf="@id/choice_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/profile_button"
