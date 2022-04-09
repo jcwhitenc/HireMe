@@ -38,17 +38,21 @@ class PositionFragment : Fragment() {
 
         val companyImage = fragView?.findViewById<ImageButton>(R.id.company_image)
 
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog)
+
         db.collection("positions").get().addOnSuccessListener { data ->
             if(data != null) {
                 positions = data.documents;
                 val position = positions[currentPosition];
-                val url = position.data!!["image"].toString();
-                loadImage(url, companyImage);
+                val url = position.data!!["image"].toString()
+                loadImage(url, companyImage)
+                initializeBottomSheetDialog(bottomSheetDialog)
             }
         }
 
         companyImage?.setOnClickListener {
-            showBottomSheetDialog()
+            showBottomSheetDialog(bottomSheetDialog)
         }
 
         // Set up the profile button
@@ -93,9 +97,7 @@ class PositionFragment : Fragment() {
         getNewPosition()
     }
 
-    private fun showBottomSheetDialog() {
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
-        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog)
+    private fun initializeBottomSheetDialog(bottomSheetDialog: BottomSheetDialog) {
         // populate the dialog with the company info
         val titleTextView = bottomSheetDialog.findViewById<TextView>(R.id.position_text)
         val wageTextView = bottomSheetDialog.findViewById<TextView>(R.id.wage_text)
@@ -113,15 +115,15 @@ class PositionFragment : Fragment() {
         locationTextView!!.text = position.data!!["location"].toString()
         startDateTextView!!.text = position.data!!["startDate"].toString()
 
-        val db = Firebase.firestore;
-
         (position.data!!["company"] as DocumentReference).get().addOnSuccessListener { company ->
             if(company != null && company.data != null) {
                 val description = company.data!!["description"].toString()
                 aboutTextView!!.text = description;
             }
         }
+    }
 
+    private fun showBottomSheetDialog(bottomSheetDialog: BottomSheetDialog) {
         bottomSheetDialog.show()
     }
 
