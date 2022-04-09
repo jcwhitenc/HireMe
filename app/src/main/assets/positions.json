@@ -1,0 +1,104 @@
+{
+  "positions": [
+    {
+      "title": "Cashier",
+      "wage": 15,
+      "payCycle": "part-time",
+      "hoursPerWeek": 20.0,
+      "location": "Provo, UT",
+      "startDate": "June 1",
+      "description": "Cashier responsibilities include receiving payments and issuing receipts, gift-wrapping packages and keeping track of all cash and credit transactions."
+    },
+    {
+      "title": "Lifeguard",
+      "wage": 14,
+      "payCycle": "full-time",
+      "hoursPerWeek": 40.0,
+      "location": "Springville, UT",
+      "startDate": "June 1",
+      "description": "Must be Red Cross Lifeguard certified or take our lifeguard class. Clean at night when the park closes."
+
+    },
+    {
+      "title": "Delivery Driver",
+      "wage": 16,
+      "payCycle": "full-time",
+      "hoursPerWeek": 40.0,
+      "location": "Orem, UT",
+      "startDate": "June 2",
+      "description": "Responsible for delivering food to customers with excellent customer service and a positive attitude. Ability to operate store technology."
+    },
+    {
+      "title": "Evening Team Member",
+      "wage": 12,
+      "payCycle": "part-time",
+      "hoursPerWeek": 20.0,
+      "location": "Provo, UT",
+      "startDate": "As soon as possible",
+      "description": "You will never have a dull moment when you are on the Team at Swig! You'll wear many hats, but your primary focus is to make sure our customers get nothing less than a fantastic experience."
+    },
+    {
+      "title": "Sales Associate -- Provo Towne Center",
+      "wage": 13,
+      "payCycle": "part-time",
+      "hoursPerWeek": 20.0,
+      "location": "Provo, UT",
+      "startDate": "May",
+      "description": "Engage, educate, and befriend customers to make an amazing shopping experience."
+    },
+    {
+      "title": "Restaurant Cashier",
+      "wage": 14,
+      "payCycle": "full-time",
+      "hoursPerWeek": 40.0,
+      "location": "Salt Lake, UT",
+      "startDate": "May 25",
+      "description": "Free meals + meal discounts. Medical, dental, vision and life insurance. Build your customer service skills."
+    },
+    {
+      "title": "Retail Store Associate",
+      "wage": 13,
+      "payCycle": "part-time",
+      "hoursPerWeek": 20.0,
+      "location": "Pleasant Grove, UT",
+      "startDate": "May 27",
+      "description": "Providing differentiated customer service by anticipating customer needs, demonstrating compassion and care in all interactions, and actively identifying and resolving potential service issues"
+    },
+    {
+      "title": "Library Page",
+      "wage": 8,
+      "payCycle": "part-time",
+      "hoursPerWeek": 20.0,
+      "location": "Orem, UT",
+      "startDate": "June 1",
+      "description": "Shelve all assigned library items accurately and quickly. Shift items on shelves to maintain even item distribution."
+    },
+    {
+      "title": "Brand Ambassador",
+      "wage": 12,
+      "payCycle": "full-time",
+      "hoursPerWeek": 40.0,
+      "location": "Provo, UT",
+      "startDate": "May 1",
+      "description": "Consistently creates a welcoming environment as customers enter or exit the store."
+    },
+    {
+      "title": "Summer Guide",
+      "wage": 13,
+      "payCycle": "full-time",
+      "hoursPerWeek": 40.0,
+      "location": "Provo, UT",
+      "startDate": "May 1",
+      "description": "The Summer Guide creates a memorable, engaging and fun experience for guests by hosting guided mountain bike and hiking excursions."
+    },
+    {
+      "title": "Restaurant Team Member",
+      "wage": 14,
+      "payCycle": "part-time",
+      "hoursPerWeek": 20.0,
+      "location": "Salem Hills, UT",
+      "startDate": "May 1",
+      "description": "Work together on a team to prepare menu items as guests order. Greet and interact with guests while serving"
+    }
+  ]
+}

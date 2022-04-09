@@ -20,7 +20,7 @@ class Position {
         get() {
             TODO()
         }
-    private val hoursPerWeek: String
+    private val hoursPerWeek: Float
         get() {
             TODO()
         }
