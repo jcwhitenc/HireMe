@@ -83,9 +83,6 @@ class PositionFragment : Fragment() {
     }
 
     private fun getNewPosition() {
-        Toast.makeText(activity, "Gathering position", Toast.LENGTH_SHORT).show()
-        // update the views with the new model data
-
         // have image view shrink
         requireActivity().supportFragmentManager.commit {
             setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
