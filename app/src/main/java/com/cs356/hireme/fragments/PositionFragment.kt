@@ -8,6 +8,7 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -55,6 +56,22 @@ class PositionFragment() : Fragment(), Parcelable {
         initializeBottomSheetDialog(bottomSheetDialog)
         companyImage?.setImageBitmap(image);
 
+        var position = positions[currentPosition];
+
+        // Set quick view elements
+        val companyName = fragView?.findViewById<TextView>(R.id.companyName)
+        val positionTitle = fragView?.findViewById<TextView>(R.id.positionTitle)
+        val wageTextView = fragView?.findViewById<TextView>(R.id.wage)
+
+        positionTitle!!.text = position.data!!["title"].toString()
+        wageTextView!!.text = "$" + position.data!!["wage"].toString()
+
+        (position.data!!["company"] as DocumentReference).get().addOnSuccessListener { company ->
+            if(company != null && company.data != null) {
+                companyName!!.text = company.data!!["name"].toString()
+            }
+        }
+
 
         // Init the next position fragment.
         var nextPositionIndex = (currentPosition + 1) % positions.size
@@ -69,7 +86,7 @@ class PositionFragment() : Fragment(), Parcelable {
         }
 
         // Set up the profile button
-        val profileButton = fragView?.findViewById<ImageButton>(R.id.profile_button)
+        val profileButton = fragView?.findViewById<Button>(R.id.profile_button)
         profileButton?.setOnClickListener {
             // Put up the Profile Fragments
             val intent = Intent(requireContext(), ApplicantActivity::class.java)

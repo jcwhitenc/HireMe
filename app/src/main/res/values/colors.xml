@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red_900">#C92A2A</color>
     <color name="blue_900">#1864AB</color>
+    <color name="gradient_start">#FF212529</color>
+    <color name="gradient_end">#00212529</color>
 </resources>
