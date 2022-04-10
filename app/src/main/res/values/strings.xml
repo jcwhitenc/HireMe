@@ -57,6 +57,8 @@
     <string name="submit">Submit</string>
     <string name="login">Login</string>
     <string name="shared_prefrences">SHARED_PREFERENCES</string>
+    <string name="application_submit">Application Submitted!</string>
+    <string name="continue_browsing">Continue</string>
 
 
 </resources>
