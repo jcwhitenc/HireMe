@@ -79,7 +79,7 @@ class ApplicantActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submit_button)
         submitButton.setOnClickListener {
             // leave this activity
-            finishActivity(RESULT_OK)
+            this.finish()
         }
 
     }

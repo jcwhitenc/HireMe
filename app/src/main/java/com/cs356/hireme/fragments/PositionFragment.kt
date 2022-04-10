@@ -1,5 +1,6 @@
 package com.cs356.hireme.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -11,6 +12,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.ActivityResultCaller
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.registerForActivityResult
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.cs356.hireme.R
@@ -21,13 +26,19 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 
 
-class PositionFragment() : Fragment(), Parcelable {
+class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
     private var fragView: View? = null
     private var positions: MutableList<DocumentSnapshot> = mutableListOf();
     private var currentPosition: Int = 0;
     private var nextPositionFragment: PositionFragment? = null;
     private var image: Bitmap? = null;
     private var nextPositionReady: Boolean = false;
+
+    private val activityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
+        if(result.resultCode != Activity.RESULT_OK) {
+            Toast.makeText(this.context, "Error setting filters.", Toast.LENGTH_SHORT);
+        }
+    }
 
     constructor(parcel: Parcel) : this() {
         currentPosition = parcel.readInt()
@@ -89,8 +100,7 @@ class PositionFragment() : Fragment(), Parcelable {
         val profileButton = fragView?.findViewById<Button>(R.id.profile_button)
         profileButton?.setOnClickListener {
             // Put up the Profile Fragments
-            val intent = Intent(requireContext(), ApplicantActivity::class.java)
-            startActivity(intent)
+            activityResult.launch(Intent(this.context,  ApplicantActivity::class.java))
         }
 
         // accept button
