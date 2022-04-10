@@ -42,7 +42,7 @@
     <string name="icon_for_fit_description">Icon for fit Description</string>
 
 
-    <string name="application">Application Information</string>
+    <string name="application">Personal Information</string>
     <string name="full_name">Full Name</string>
     <string name="age">Age</string>
     <string name="male">Male</string>
@@ -57,6 +57,8 @@
     <string name="submit">Submit</string>
     <string name="login">Login</string>
     <string name="shared_prefrences">SHARED_PREFERENCES</string>
+    <string name="application_submit">Application Submitted!</string>
+    <string name="continue_browsing">Continue</string>
 
 
 </resources>

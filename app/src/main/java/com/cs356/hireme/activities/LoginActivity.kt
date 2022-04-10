@@ -14,7 +14,8 @@ class LoginActivity : AppCompatActivity() {
     private val signInLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
     ) { res ->
-        this.onSignInResult(res)
+        this.setResult(res.resultCode)
+        this.finish()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

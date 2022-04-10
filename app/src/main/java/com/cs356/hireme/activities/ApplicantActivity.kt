@@ -8,7 +8,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.cs356.hireme.R
 import com.cs356.hireme.databinding.ActivityMainBinding
+import com.firebase.ui.auth.AuthUI
 import com.google.android.material.slider.Slider
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+
+const val RESULT_LOG_OUT = 42;
 
 class ApplicantActivity : AppCompatActivity() {
     companion object {
@@ -79,7 +84,15 @@ class ApplicantActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submit_button)
         submitButton.setOnClickListener {
             // leave this activity
-            finishActivity(RESULT_OK)
+            this.finish()
+        }
+
+        var logoutButton: ImageButton = findViewById(R.id.logout_button)
+        logoutButton.setOnClickListener {
+            AuthUI.getInstance().signOut(this).addOnCompleteListener {
+                this.setResult(RESULT_LOG_OUT)
+                this.finish()
+            }
         }
 
     }

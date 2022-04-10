@@ -9,22 +9,22 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/card_bg"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/fui_transparent"
+                android:fontFamily="@font/inter_black"
                 android:padding="12dp"
                 android:text="@string/position_sheet_title"
-                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -37,17 +37,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:padding="8dp"
+                    android:fontFamily="@font/inter_light"
+                    android:gravity="bottom"
+                    android:paddingLeft="8dp"
                     android:text="@string/position_title_label"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/position_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
                     android:padding="8dp"
                     android:text="@string/position_title"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -60,17 +65,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:padding="8dp"
+                    android:fontFamily="@font/inter_light"
+                    android:gravity="bottom"
+                    android:paddingLeft="8dp"
                     android:text="@string/wage_label"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/wage_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
                     android:padding="8dp"
                     android:text="@string/temp_wage"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -83,17 +93,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:padding="8dp"
+                    android:fontFamily="@font/inter_light"
+                    android:gravity="bottom"
+                    android:paddingLeft="8dp"
                     android:text="@string/hours_label"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/hours_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
                     android:padding="8dp"
                     android:text="@string/temp_hours"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -106,17 +121,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:padding="8dp"
+                    android:fontFamily="@font/inter_light"
+                    android:gravity="bottom"
+                    android:paddingLeft="8dp"
                     android:text="@string/location_label"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/location_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
                     android:padding="8dp"
                     android:text="@string/temp_location"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -129,17 +149,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:padding="8dp"
+                    android:fontFamily="@font/inter_light"
+                    android:gravity="bottom"
+                    android:paddingLeft="8dp"
                     android:text="@string/start_date_label"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/start_date_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
                     android:padding="8dp"
                     android:text="@string/temp_start_date"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -153,9 +178,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/inter_black"
                     android:padding="8dp"
                     android:text="@string/fit_label"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
 
                 <LinearLayout
                     android:id="@+id/fit_item_1"
@@ -178,8 +205,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/inter"
                         android:padding="8dp"
-                        android:text="@string/temporary_fit_description" />
+                        android:text="@string/temporary_fit_description"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -203,8 +233,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/inter"
                         android:padding="8dp"
-                        android:text="@string/temporary_fit_description" />
+                        android:text="@string/temporary_fit_description"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -228,8 +261,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/inter"
                         android:padding="8dp"
-                        android:text="@string/temporary_fit_description" />
+                        android:text="@string/temporary_fit_description"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -243,17 +279,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/inter_black"
                     android:padding="8dp"
                     android:text="@string/about_label"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/about_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
                     android:padding="8dp"
                     android:text="@string/temp_about_text"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
