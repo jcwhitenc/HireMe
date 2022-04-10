@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -33,28 +34,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/choice_bar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
+        <Button
             android:id="@+id/reject_button"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:background="@color/red"
+            android:layout_width="52dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/red_900"
+            android:contentDescription="Close button"
             android:gravity="center"
-            android:text="@string/x" />
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/ic_x"
+            app:layout_constraintBottom_toBottomOf="@+id/accept_button"
+            app:layout_constraintEnd_toStartOf="@+id/accept_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/accept_button" />
 
-        <TextView
+        <Button
             android:id="@+id/accept_button"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="7"
-            android:background="@color/teal_700"
-            android:gravity="center"
-            android:text="@string/apply" />
-    </LinearLayout>
+            android:layout_height="52dp"
+            android:layout_margin="0dp"
+            android:backgroundTint="@color/blue_900"
+            android:fontFamily="@font/inter"
+            android:foregroundGravity="fill_vertical"
+            android:gravity="center|fill_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="52dp"
+            android:padding="0dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="@string/apply"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reject_button"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="x">X</string>
-    <string name="apply">Apply</string>
+    <string name="apply">Apply Now</string>
     <string name="profile_fragment_button">Profile Fragment Button</string>
     <string name="holds_company_image">Holds Company Image</string>
     <string name="position_sheet_title">About this position</string>

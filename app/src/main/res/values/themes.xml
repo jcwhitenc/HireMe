@@ -28,6 +28,6 @@
     </style>
 
     <style name="Button.Red" parent="ThemeOverlay.AppCompat">
-        <item name="colorAccent">@color/red</item>
+        <item name="colorAccent">@color/red_900</item>
     </style>
 </resources>

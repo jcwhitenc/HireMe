@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/activity.xml" value="0.257" />
         <entry key="app/src/main/res/drawable/card_bg.xml" value="0.242" />
+        <entry key="app/src/main/res/drawable/full_button.xml" value="0.252" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.275" />
         <entry key="app/src/main/res/layout/appilcant_activity.xml" value="0.275" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.275" />
