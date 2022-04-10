@@ -50,7 +50,7 @@ class PositionFragment() : Fragment(), Parcelable {
 
         val companyImage = fragView?.findViewById<ImageButton>(R.id.company_image)
 
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog)
 
         initializeBottomSheetDialog(bottomSheetDialog)
