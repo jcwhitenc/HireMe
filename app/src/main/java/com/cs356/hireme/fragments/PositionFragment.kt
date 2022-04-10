@@ -18,8 +18,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.cs356.hireme.R
-import com.cs356.hireme.activities.ApplicantActivity
-import com.cs356.hireme.activities.SubmitActivity
+import com.cs356.hireme.activities.*
 import com.cs356.hireme.loadImage
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.DocumentReference
@@ -37,6 +36,11 @@ class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
     private val filtersResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if(result.resultCode != Activity.RESULT_OK) {
             Toast.makeText(this.context, "Error setting filters.", Toast.LENGTH_SHORT);
+        }
+        if(result.resultCode == RESULT_LOG_OUT) {
+            var intent = Intent(this.context, MainActivity::class.java);
+            startActivity(intent)
+            activity!!.finish()
         }
     }
 
@@ -112,7 +116,7 @@ class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
         // accept button
         val acceptButton = fragView?.findViewById<TextView>(R.id.accept_button)
         acceptButton?.setOnClickListener {
-            filtersResult.launch(Intent(this.context,  SubmitActivity::class.java))
+           submitApplicationResult.launch(Intent(this.context,  SubmitActivity::class.java))
             acceptPosition()
         }
 
