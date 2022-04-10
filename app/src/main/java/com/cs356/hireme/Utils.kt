@@ -9,7 +9,7 @@ import android.widget.ImageView
 import java.util.concurrent.Executors
 
 
-fun loadImage(url: String, imageView: ImageButton?) {
+fun loadImage(url: String, cb: (image: Bitmap?) -> Unit) {
     // Declaring executor to parse the URL
     val executor = Executors.newSingleThreadExecutor()
 
@@ -31,7 +31,7 @@ fun loadImage(url: String, imageView: ImageButton?) {
 
             // Only for making changes in UI
             handler.post {
-                imageView!!.setImageBitmap(image)
+                cb.invoke(image)
             }
         }
 

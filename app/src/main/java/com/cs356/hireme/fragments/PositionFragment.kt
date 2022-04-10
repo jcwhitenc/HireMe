@@ -1,13 +1,15 @@
 package com.cs356.hireme.fragments
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.cs356.hireme.R
@@ -16,22 +18,31 @@ import com.cs356.hireme.loadImage
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 
-class PositionFragment : Fragment() {
+class PositionFragment() : Fragment(), Parcelable {
     private var fragView: View? = null
     private var positions: MutableList<DocumentSnapshot> = mutableListOf();
     private var currentPosition: Int = 0;
+    private var nextPositionFragment: PositionFragment? = null;
+    private var image: Bitmap? = null;
+    private var nextPositionReady: Boolean = false;
+
+    constructor(parcel: Parcel) : this() {
+        currentPosition = parcel.readInt()
+    }
+
+    constructor(positions: MutableList<DocumentSnapshot>, image: Bitmap?, currentPosition: Int) : this() {
+        this.currentPosition = currentPosition;
+        this.image = image;
+        this.positions = positions;
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val db = Firebase.firestore;
-
         fragView = inflater.inflate(R.layout.position_fragment, container, false)
 
         if (fragView == null) return super.onCreateView(inflater, container, savedInstanceState)
@@ -41,14 +52,16 @@ class PositionFragment : Fragment() {
         val bottomSheetDialog = BottomSheetDialog(requireContext())
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog)
 
-        db.collection("positions").get().addOnSuccessListener { data ->
-            if(data != null) {
-                positions = data.documents;
-                val position = positions[currentPosition];
-                val url = position.data!!["image"].toString()
-                loadImage(url, companyImage)
-                initializeBottomSheetDialog(bottomSheetDialog)
-            }
+        initializeBottomSheetDialog(bottomSheetDialog)
+        companyImage?.setImageBitmap(image);
+
+
+        // Init the next position fragment.
+        var nextPositionIndex = (currentPosition + 1) % positions.size
+        var nextPosition = positions[nextPositionIndex]
+        loadImage(nextPosition.data!!["image"].toString()) { image ->
+            nextPositionFragment = PositionFragment(this.positions, image, nextPositionIndex)
+            nextPositionReady = true
         }
 
         companyImage?.setOnClickListener {
@@ -83,10 +96,14 @@ class PositionFragment : Fragment() {
     }
 
     private fun getNewPosition() {
+        if(!nextPositionReady) {
+            return;
+        }
+
         // have image view shrink
         requireActivity().supportFragmentManager.commit {
             setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
-            add(R.id.main_fragment_container, PositionFragment())
+            add(R.id.main_fragment_container, nextPositionFragment!!)
         }
     }
 
@@ -122,6 +139,24 @@ class PositionFragment : Fragment() {
 
     private fun showBottomSheetDialog(bottomSheetDialog: BottomSheetDialog) {
         bottomSheetDialog.show()
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(currentPosition)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<PositionFragment> {
+        override fun createFromParcel(parcel: Parcel): PositionFragment {
+            return PositionFragment(parcel)
+        }
+
+        override fun newArray(size: Int): Array<PositionFragment?> {
+            return arrayOfNulls(size)
+        }
     }
 
 }
