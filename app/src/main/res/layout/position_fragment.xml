@@ -1,56 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ImageButton
         android:id="@+id/company_image"
-        android:layout_width="match_parent"
+        android:layout_width="411dp"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
+        android:adjustViewBounds="false"
+        android:background="#FFFFFF"
         android:contentDescription="@string/holds_company_image"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/mcdonalds"
-        app:layout_constraintBottom_toTopOf="@id/choice_bar" />
-
-    <ImageButton
-        android:id="@+id/profile_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:contentDescription="@string/profile_fragment_button"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_person"
+        app:layout_constraintBottom_toTopOf="@id/choice_bar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/choice_bar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_actions"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background_reversed"
+        android:paddingTop="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/profile_button"
+            style="@style/Widget.Material3.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:background="@null"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/profile_fragment_button"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingLeft="0dp"
+            android:paddingTop="0dp"
+            android:paddingRight="0dp"
+            android:shadowColor="#00FFFFFF"
+            android:textColor="@color/white"
+            android:textSize="0dp"
+            app:icon="@drawable/fi_user"
+            app:iconGravity="end"
+            app:iconSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/positionQuickInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background"
+        android:paddingLeft="16sp"
+        android:paddingTop="120sp"
+        android:paddingRight="16sp"
+        android:paddingBottom="16sp"
+        app:layout_constraintBottom_toTopOf="@id/choice_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/reject_button"
+            android:id="@+id/companyName"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:background="@color/red"
-            android:gravity="center"
-            android:text="@string/x" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_black"
+            android:padding="0dp"
+            android:text="Company"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/wage"
+            app:layout_constraintEnd_toStartOf="@+id/positionTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_conversion_absoluteHeight="32dp"
+            tools:layout_conversion_absoluteWidth="102dp" />
 
         <TextView
+            android:id="@+id/positionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_thin"
+            android:padding="0dp"
+            android:text="Title"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/wage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/companyName"
+            tools:layout_conversion_absoluteHeight="32dp"
+            tools:layout_conversion_absoluteWidth="49dp" />
+
+        <TextView
+            android:id="@+id/wage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:paddingTop="8dp"
+            android:text="wage"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/choice_bar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/reject_button"
+            android:layout_width="52dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/red_900"
+            android:contentDescription="Close button"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/ic_x"
+            app:layout_constraintBottom_toBottomOf="@+id/accept_button"
+            app:layout_constraintEnd_toStartOf="@+id/accept_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/accept_button" />
+
+        <Button
             android:id="@+id/accept_button"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="7"
-            android:background="@color/teal_700"
-            android:gravity="center"
-            android:text="@string/apply" />
-    </LinearLayout>
+            android:layout_height="52dp"
+            android:layout_margin="0dp"
+            android:backgroundTint="@color/blue_900"
+            android:fontFamily="@font/inter"
+            android:foregroundGravity="fill_vertical"
+            android:gravity="center|fill_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="52dp"
+            android:padding="0dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="@string/apply"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reject_button"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
