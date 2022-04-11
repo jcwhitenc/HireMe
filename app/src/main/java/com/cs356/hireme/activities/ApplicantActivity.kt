@@ -1,19 +1,15 @@
 package com.cs356.hireme.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.cs356.hireme.R
-import com.cs356.hireme.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.slider.Slider
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
-const val RESULT_LOG_OUT = 42;
+const val RESULT_LOG_OUT = 42
 
 class ApplicantActivity : AppCompatActivity() {
     companion object {
@@ -46,7 +42,7 @@ class ApplicantActivity : AppCompatActivity() {
     private var jobType = "Job Type"
 
 
-    override fun onCreate(savedInstanceState: Bundle?, ) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.appilcant_activity)
 
@@ -84,39 +80,33 @@ class ApplicantActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submit_button)
         submitButton.setOnClickListener {
             // leave this activity
-            this.finish()
+            val intent = Intent(this, MainActivity::class.java)
+//            intent.putExtra("")
+            startActivity(intent)
+            finish()
         }
 
-        var logoutButton: ImageButton = findViewById(R.id.logout_button)
+        val logoutButton: ImageButton = findViewById(R.id.logout_button)
         logoutButton.setOnClickListener {
             AuthUI.getInstance().signOut(this).addOnCompleteListener {
                 this.setResult(RESULT_LOG_OUT)
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags =
+                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
                 this.finish()
             }
         }
 
     }
 
-    override fun onPause() {
-        super.onPause()
-        // set the values from shared preferences
-        val sharedPref = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putString(FULL_NAME, fullNameView.text.toString())
-        editor.putInt(AGE, userAge)
-        editor.putString(SEX, userSex)
-        editor.putString(ADDRESS, addressView.text.toString())
-        editor.putString(JOB_TYPE, jobType)
-        editor.putFloat(MAX_DISTANCE, preferredDistanceSlider.value)
-        editor.putFloat(MIN_PAY, preferredMinPaySlider.value)
-        editor.apply()
-    }
-
     override fun onResume() {
         super.onResume()
 
+        val user = FirebaseAuth.getInstance().currentUser
+
         val sharedPref = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE)
-        userFullName = sharedPref.getString(FULL_NAME, fullNameView.text.toString()) ?: "No Name"
+        userFullName = sharedPref.getString(FULL_NAME, fullNameView.text.toString()) ?: user?.displayName.toString()
         userAge = sharedPref.getInt(AGE, userAge)
         userSex = sharedPref.getString(SEX, userSex) ?: "Other"
         userAddress = sharedPref.getString(ADDRESS, addressView.text.toString()) ?: "No Address"
@@ -130,21 +120,39 @@ class ApplicantActivity : AppCompatActivity() {
         val maleButton = findViewById<RadioButton>(R.id.radio_male)
         val femaleButton = findViewById<RadioButton>(R.id.radio_female)
         val otherButton = findViewById<RadioButton>(R.id.radio_other)
-        maleButton.isChecked = false
-        femaleButton.isChecked = false
-        otherButton.isChecked = false
         when (userSex) {
             "Male" -> {
                 maleButton.isChecked = true
+                femaleButton.isChecked = false
+                otherButton.isChecked = false
             }
             "Female" -> {
                 femaleButton.isChecked = true
+                maleButton.isChecked = false
+                otherButton.isChecked = false
             }
             else -> {
                 otherButton.isChecked = true
+                maleButton.isChecked = false
+                femaleButton.isChecked = false
             }
         }
+    }
 
+    override fun onPause() {
+        super.onPause()
+        // set the values from shared preferences
+        val sharedPref = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        editor.putString(FULL_NAME, fullNameView.text.toString())
+        editor.putInt(AGE, userAge)
+        editor.putString(SEX, userSex)
+        editor.putString(ADDRESS, addressView.text.toString())
+        editor.putString(JOB_TYPE, jobType)
+        editor.putFloat(MAX_DISTANCE, preferredDistanceSlider.value)
+        editor.putFloat(MIN_PAY, preferredMinPaySlider.value)
+        editor.apply()
     }
 
     private fun verify() {

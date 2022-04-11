@@ -19,7 +19,7 @@ fun loadImage(url: String, cb: (image: Bitmap?) -> Unit) {
     val handler = Handler(Looper.getMainLooper())
 
     // Initializing the image
-    var image: Bitmap? = null
+    var image: Bitmap?
 
     // Only for Background process (can take time depending on the Internet speed)
     executor.execute {

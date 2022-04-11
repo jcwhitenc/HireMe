@@ -27,37 +27,43 @@ import com.google.firebase.firestore.DocumentSnapshot
 
 class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
     private var fragView: View? = null
-    private var positions: MutableList<DocumentSnapshot> = mutableListOf();
-    private var currentPosition: Int = 0;
-    private var nextPositionFragment: PositionFragment? = null;
-    private var image: Bitmap? = null;
-    private var nextPositionReady: Boolean = false;
+    private var positions: MutableList<DocumentSnapshot> = mutableListOf()
+    private var currentPosition: Int = 0
+    private var nextPositionFragment: PositionFragment? = null
+    private var image: Bitmap? = null
+    private var nextPositionReady: Boolean = false
 
-    private val filtersResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if(result.resultCode != Activity.RESULT_OK) {
-            Toast.makeText(this.context, "Error setting filters.", Toast.LENGTH_SHORT);
+    private val filtersResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                Toast.makeText(this.context, "Error setting filters.", Toast.LENGTH_SHORT)
+            }
+            if (result.resultCode == RESULT_LOG_OUT) {
+                val intent = Intent(this.context, MainActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            }
         }
-        if(result.resultCode == RESULT_LOG_OUT) {
-            var intent = Intent(this.context, MainActivity::class.java);
-            startActivity(intent)
-            activity!!.finish()
-        }
-    }
 
-    private val submitApplicationResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
-        if(result.resultCode != Activity.RESULT_OK) {
-            Toast.makeText(this.context, "Error submitting application", Toast.LENGTH_SHORT);
+    private val submitApplicationResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode != Activity.RESULT_OK) {
+                Toast.makeText(this.context, "Error submitting application", Toast.LENGTH_SHORT)
+            }
         }
-    }
 
     constructor(parcel: Parcel) : this() {
         currentPosition = parcel.readInt()
     }
 
-    constructor(positions: MutableList<DocumentSnapshot>, image: Bitmap?, currentPosition: Int) : this() {
-        this.currentPosition = currentPosition;
-        this.image = image;
-        this.positions = positions;
+    constructor(
+        positions: MutableList<DocumentSnapshot>,
+        image: Bitmap?,
+        currentPosition: Int
+    ) : this() {
+        this.currentPosition = currentPosition
+        this.image = image
+        this.positions = positions
     }
 
     override fun onCreateView(
@@ -71,33 +77,34 @@ class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
 
         val companyImage = fragView?.findViewById<ImageButton>(R.id.company_image)
 
-        val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
+        val bottomSheetDialog =
+            BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog)
 
         initializeBottomSheetDialog(bottomSheetDialog)
-        companyImage?.setImageBitmap(image);
+        companyImage?.setImageBitmap(image)
 
-        var position = positions[currentPosition];
+        val position = positions[currentPosition]
 
         // Set quick view elements
         val companyName = fragView?.findViewById<TextView>(R.id.companyName)
         val positionTitle = fragView?.findViewById<TextView>(R.id.positionTitle)
         val wageTextView = fragView?.findViewById<TextView>(R.id.wage)
 
-        positionTitle!!.text = position.data!!["title"].toString()
-        wageTextView!!.text = "$" + position.data!!["wage"].toString()
+        positionTitle?.text = position.get("title").toString()
+        wageTextView?.text = "$" + position.get("wage").toString()
 
-        (position.data!!["company"] as DocumentReference).get().addOnSuccessListener { company ->
-            if(company != null && company.data != null) {
+        (position.get("company") as DocumentReference).get().addOnSuccessListener { company ->
+            if (company != null && company.data != null) {
                 companyName!!.text = company.data!!["name"].toString()
             }
         }
 
 
         // Init the next position fragment.
-        var nextPositionIndex = (currentPosition + 1) % positions.size
-        var nextPosition = positions[nextPositionIndex]
-        loadImage(nextPosition.data!!["image"].toString()) { image ->
+        val nextPositionIndex = (currentPosition + 1) % positions.size
+        val nextPosition = positions[nextPositionIndex]
+        loadImage(nextPosition.get("image").toString()) { image ->
             nextPositionFragment = PositionFragment(this.positions, image, nextPositionIndex)
             nextPositionReady = true
         }
@@ -110,14 +117,16 @@ class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
         val profileButton = fragView?.findViewById<Button>(R.id.profile_button)
         profileButton?.setOnClickListener {
             // Put up the Profile Fragments
-            filtersResult.launch(Intent(this.context,  ApplicantActivity::class.java))
+            filtersResult.launch(Intent(this.context, ApplicantActivity::class.java))
         }
 
         // accept button
         val acceptButton = fragView?.findViewById<TextView>(R.id.accept_button)
         acceptButton?.setOnClickListener {
-           submitApplicationResult.launch(Intent(this.context,  SubmitActivity::class.java))
-            acceptPosition()
+            if (nextPositionReady) {
+                submitApplicationResult.launch(Intent(this.context, SubmitActivity::class.java))
+                acceptPosition()
+            }
         }
 
         // reject button
@@ -134,8 +143,8 @@ class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
     }
 
     private fun getNewPosition() {
-        if(!nextPositionReady) {
-            return;
+        if (!nextPositionReady) {
+            return
         }
 
         // have image view shrink
@@ -158,19 +167,19 @@ class PositionFragment() : Fragment(), Parcelable, ActivityResultCaller {
         val startDateTextView = bottomSheetDialog.findViewById<TextView>(R.id.start_date_text)
         val aboutTextView = bottomSheetDialog.findViewById<TextView>(R.id.about_text)
 
-        val position = positions[currentPosition];
+        val position = positions[currentPosition]
 
         // Get the Text for each textViews
-        titleTextView!!.text = position.data!!["title"].toString()
-        wageTextView!!.text = "$" + position.data!!["wage"].toString()
-        hoursTextView!!.text = position.data!!["hours"].toString() + "hrs"
-        locationTextView!!.text = position.data!!["location"].toString()
-        startDateTextView!!.text = position.data!!["startDate"].toString()
+        titleTextView?.text = position.get("title").toString()
+        wageTextView?.text = "$" + position.get("wage").toString()
+        hoursTextView?.text = position.get("hours").toString() + "hrs"
+        locationTextView?.text = position.get("location").toString()
+        startDateTextView?.text = position.get("startDate").toString()
 
-        (position.data!!["company"] as DocumentReference).get().addOnSuccessListener { company ->
-            if(company != null && company.data != null) {
+        (position.get("company") as DocumentReference).get().addOnSuccessListener { company ->
+            if (company != null && company.data != null) {
                 val description = company.data!!["description"].toString()
-                aboutTextView!!.text = description;
+                aboutTextView!!.text = description
             }
         }
     }

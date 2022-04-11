@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private val loginResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if(result.resultCode != Activity.RESULT_OK) {
-            Toast.makeText(this, "Error logging in", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Error logging in", Toast.LENGTH_SHORT)
         }
         else {
             System.out.println("Logged in!")
@@ -34,12 +34,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showPositions() {
-        val db = Firebase.firestore;
+        val db = Firebase.firestore
 
         db.collection("positions").get().addOnSuccessListener { data ->
             if(data != null) {
-                var positions = data.documents;
-                val position = positions[0];
+                var positions = data.documents
+                val position = positions[0]
                 val url = position.data!!["image"].toString()
                 loadImage(url) { image ->
                     var positionFragment = PositionFragment(positions, image, 0)
